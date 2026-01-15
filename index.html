@@ -249,14 +249,12 @@
       function unityShowBanner(msg, type) { /* ... This can be left empty or implemented if you need banner messages ... */ }
 
       var buildUrl = "Build";
-      // === IMPORTANT: THESE ARE THE FILE PATHS FROM YOUR LATEST FILE ===
-      var loaderUrl = buildUrl + "/conductor.loader.js";
+      var loaderUrl = buildUrl + "/Conveyer.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/conductor.data",
-        frameworkUrl: buildUrl + "/conductor.framework.js",
-        codeUrl: buildUrl + "/conductor.wasm",
-        // === END OF IMPORTANT CHANGES ===
+        dataUrl: buildUrl + "/Conveyer.data",
+        frameworkUrl: buildUrl + "/Conveyer.framework.js",
+        codeUrl: buildUrl + "/Conveyer.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Shorted",
