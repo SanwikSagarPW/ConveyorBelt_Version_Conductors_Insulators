@@ -18,69 +18,69 @@
       "reactor": 0,
 
       "containers": [
-        { "name": "INSULATOR", "id": "INSULATORS" },
-        { "name": "CONDUCTOR", "id": "CONDUCTORS" }
+        { "name": "CONDUCTORS", "id": "CONDUCTORS" },
+        { "name": "INSULATORS", "id": "INSULATORS" }
       ],
 
       "items": [
         {
           "id": "Cu",
           "display_text": "Cu",
-          "correct_category_name": "CONDUCTOR",
+          "correct_category_name": "CONDUCTORS",
           "presentation_mode": "NAME"
         },
         {
           "id": "rubber",
           "display_text": "rubber",
-          "correct_category_name": "INSULATOR",
+          "correct_category_name": "INSULATORS",
           "presentation_mode": "NAME"
         },
         {
           "id": "IronNail",
           "display_text": "IronNail",
-          "correct_category_name": "CONDUCTOR",
+          "correct_category_name": "CONDUCTORS",
           "presentation_mode": "NAME"
         },
         {
           "id": "ruler",
           "display_text": "plastic ruler",
-          "correct_category_name": "INSULATOR",
+          "correct_category_name": "INSULATORS",
           "presentation_mode": "NAME"
         },
         {
           "id": "Al foil",
           "display_text": "Aluminium foil",
-          "correct_category_name": "CONDUCTOR",
+          "correct_category_name": "CONDUCTORS",
           "presentation_mode": "NAME"
         },
         {
           "id": "wood",
           "display_text": "wood",
-          "correct_category_name": "INSULATOR",
+          "correct_category_name": "INSULATORS",
           "presentation_mode": "NAME"
         },
         {
           "id": "Graphite",
           "display_text": "Graphite",
-          "correct_category_name": "CONDUCTOR",
+          "correct_category_name": "CONDUCTORS",
           "presentation_mode": "NAME"
         },
         {
           "id": "GlassRod",
           "display_text": "GlassRod",
-          "correct_category_name": "INSULATOR",
+          "correct_category_name": "INSULATORS",
           "presentation_mode": "NAME"
         },
         {
           "id": "SteelSpoon",
           "display_text": "spoon",
-          "correct_category_name": "CONDUCTOR",
+          "correct_category_name": "CONDUCTORS",
           "presentation_mode": "NAME"
         },
         {
           "id": "PaperClip",
           "display_text": "PaperClip",
-          "correct_category_name": "CONDUCTOR",
+          "correct_category_name": "CONDUCTORS",
           "presentation_mode": "NAME"
         }
       ]
@@ -99,77 +99,77 @@
       "reactor": 1,
 
       "containers": [
-        { "name": "INSULATOR", "id": "INSULATORS" },
-        { "name": "CONDUCTOR", "id": "CONDUCTORS" }
+        { "name": "CONDUCTORS", "id": "CONDUCTORS" },
+        { "name": "INSULATORS", "id": "INSULATORS" }
       ],
       "items": [
         {
           "id": "SaltSoln",
           "display_text": "Salt Solution",
-          "correct_category_name": "CONDUCTOR",
+          "correct_category_name": "CONDUCTORS",
           "presentation_mode": "PROPERTY_CUE",
           "reaction_type": "NO_REACTION"
         },
         {
           "id": "Water",
           "display_text": "Distilled H2O",
-          "correct_category_name": "INSULATOR",
+          "correct_category_name": "INSULATORS",
           "presentation_mode": "PROPERTY_CUE",
           "reaction_type": "NO_REACTION"
         },
         {
           "id": "Ag",
           "display_text": "Silver",
-          "correct_category_name": "CONDUCTOR",
+          "correct_category_name": "CONDUCTORS",
           "presentation_mode": "PROPERTY_CUE",
           "hint_text": "No litmus change?"
         },
         {
           "id": "yarn",
           "display_text": "Yarn",
-          "correct_category_name": "INSULATOR",
+          "correct_category_name": "INSULATORS",
           "presentation_mode": "PROPERTY_CUE",
           "reaction_type": "PH_INDICATOR_RED"
         },
         {
           "id": "gold",
           "display_text": "Gold",
-          "correct_category_name": "CONDUCTOR",
+          "correct_category_name": "CONDUCTORS",
           "presentation_mode": "PROPERTY_CUE",
           "reaction_type": "PH_INDICATOR_BLUE"
         },
         {
           "id": "Plate",
           "display_text": "Ceramic",
-          "correct_category_name": "INSULATOR",
+          "correct_category_name": "INSULATORS",
           "presentation_mode": "PROPERTY_CUE",
           "reaction_type": "PH_INDICATOR_GREEN"
         },
         {
           "id": "Lemon",
           "display_text": "Lemon",
-          "correct_category_name": "CONDUCTOR",
+          "correct_category_name": "CONDUCTORS",
           "presentation_mode": "PROPERTY_CUE",
           "hint_text": "Sour taste indicator?"
         },
         {
           "id": "Cloth",
           "display_text": "Cotton Cloth",
-          "correct_category_name": "INSULATOR",
+          "correct_category_name": "INSULATORS",
           "presentation_mode": "PROPERTY_CUE",
           "hint_text": "Bitter taste indicator?"
         },
         {
           "id": "Hg",
           "display_text": "Liquid Metal",
-          "correct_category_name": "CONDUCTOR",
+          "correct_category_name": "CONDUCTORS",
           "presentation_mode": "PROPERTY_CUE",
           "reaction_type": "NO_REACTION"
         },
         {
           "id": "Air",
           "display_text": "  AIR  ",
-          "correct_category_name": "INSULATOR",
+          "correct_category_name": "INSULATORS",
           "presentation_mode": "PROPERTY_CUE",
           "reaction_type": "METAL_BUBBLES"
         }
@@ -180,7 +180,7 @@
       "level": 3,
       "objective_text": "Expert sorting: Identify weak and strong acids/bases by image alone!",
       "conveyor_speed_modifier": 0.8,
-      "total_items_in_level": 10,
+      "total_items_in_level": 11,
       "item_spawn_interval_seconds": 9,
       "xp_per_correct": 8,
       "xp_per_incorrect": -4,
@@ -189,69 +189,75 @@
       "reactor": 0,
 
       "containers": [
-        { "name": "CONDUCTOR", "id": "CONDUCTORS" },
-        { "name": "INSULATOR", "id": "INSULATORS" }
+        { "name": "CONDUCTORS", "id": "CONDUCTORS" },
+        { "name": "INSULATORS", "id": "INSULATORS" }
         ],
 
       "items": [
         {
           "id": "electricalPole",
           "display_text": "",
-          "correct_category_name": "INSULATOR",
+          "correct_category_name": "INSULATORS",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
           "id": "SolderWire",
           "display_text": "",
-          "correct_category_name": "CONDUCTOR",
+          "correct_category_name": "CONDUCTORS",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
           "id": "SiliconWafer",
           "display_text": "",
-          "correct_category_name": "CONDUCTOR",
+          "correct_category_name": "CONDUCTORS",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
           "id": "Rubber",
           "display_text": "",
-          "correct_category_name": "INSULATOR",
+          "correct_category_name": "INSULATORS",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
           "id": "CircuitBoard",
           "display_text": "",
-          "correct_category_name": "CONDUCTOR",
+          "correct_category_name": "CONDUCTORS",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
           "id": "outlet",
           "display_text": "",
-          "correct_category_name": "INSULATOR",
+          "correct_category_name": "INSULATORS",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
           "id": "lightningRod",
           "display_text": "",
-          "correct_category_name": "CONDUCTOR",
+          "correct_category_name": "CONDUCTORS",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
           "id": "Wood",
           "display_text": "",
-          "correct_category_name": "INSULATOR",
+          "correct_category_name": "INSULATORS",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
           "id": "magnet",
           "display_text": "",
-          "correct_category_name": "CONDUCTOR",
+          "correct_category_name": "CONDUCTORS",
           "presentation_mode": "IMAGE_ONLY"
         },
         {
           "id": "opticCabel",
           "display_text": "",
-          "correct_category_name": "INSULATOR",
+          "correct_category_name": "INSULATORS",
+          "presentation_mode": "IMAGE_ONLY"
+        },
+        {
+          "id": "wetsuit",
+          "display_text": "",
+          "correct_category_name": "FULLY-SYNTHETIC",
           "presentation_mode": "IMAGE_ONLY"
         }
       ]
