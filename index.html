@@ -31,18 +31,37 @@
           background: linear-gradient(135deg, #000000 0%, #000000 100%);
       }
 
-      /* The unity container now grows to fill available space and centers the canvas */
+      /* The unity container fills the entire viewport */
       #unity-container {
-        flex: 1; /* Allows the container to grow */
-        min-height: 0; /* Necessary for flex-grow in some browsers */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        background: #000;
       }
       
       #unity-canvas {
         /* The width and height are set by the letterboxing script */
         background: #000;
+      }
+
+      /* Hide the Unity-injected header/footer bar (fullscreen/restart/title buttons) */
+      #unity-footer,
+      #unity-fullscreen-button,
+      #unity-build-title,
+      #unity-logo,
+      #unity-warning,
+      .unity-footer,
+      .fullscreen-button,
+      #unity-container > div:not(#unity-canvas) {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        overflow: hidden !important;
       }
 
       /* Loading overlay that replaces the old "Tap to Start" */
@@ -101,7 +120,6 @@
       <!-- Unity game content area -->
       <div id="unity-container">
         <canvas id="unity-canvas" width=1920 height=1080 tabindex="-1"></canvas>
-        <div id="unity-warning"></div>
       </div>
     </div>
 
@@ -125,6 +143,7 @@
       var rotationAnimation = document.querySelector("#rotation-animation");
       var hasGameLoadStarted = false;
       var hasUserInteracted = false;
+      var unityInstance = null;
 
       // --- SCALING AND LETTERBOXING LOGIC (Adapted) ---
       function applyLetterboxing() {
@@ -181,14 +200,8 @@
       function updateOrientationUI() {
         if (isPortrait()) {
           rotationAnimation.style.display = 'flex';
-          loadingText.innerHTML = hasGameLoadStarted
-            ? 'Rotate to landscape to continue'
-            : 'Rotate to landscape and tap to start';
         } else {
           rotationAnimation.style.display = 'none';
-          if (!hasGameLoadStarted) {
-            loadingText.innerHTML = 'Tap to start fullscreen landscape';
-          }
         }
       }
 
@@ -215,7 +228,8 @@
         script.onload = () => {
           createUnityInstance(canvas, config, (progress) => {
             loadingText.innerHTML = `Loading... ${Math.round(progress * 100)}%`;
-          }).then(() => {
+          }).then((instance) => {
+            unityInstance = instance;
             loadingOverlay.style.display = 'none';
           }).catch((message) => {
             alert(message);
@@ -227,14 +241,13 @@
         document.body.appendChild(script);
       }
 
-      function tryStartExperience() {
+      function tryGoFullscreen() {
+        if (hasUserInteracted) return;
         hasUserInteracted = true;
         requestFullscreen().finally(() => {
           lockLandscapeIfSupported();
           updateOrientationUI();
-          if (!isPortrait()) {
-            startUnityLoad();
-          }
+          applyLetterboxing();
         });
       }
 
@@ -246,18 +259,34 @@
 
       window.addEventListener('orientationchange', () => {
         updateOrientationUI();
-        if (hasUserInteracted && !hasGameLoadStarted && !isPortrait()) {
-          startUnityLoad();
-        }
+        applyLetterboxing();
       });
 
       loadingOverlay.style.cursor = 'pointer';
-      loadingOverlay.addEventListener('click', tryStartExperience);
-      loadingOverlay.addEventListener('touchend', tryStartExperience);
+      loadingOverlay.addEventListener('click', tryGoFullscreen);
+      loadingOverlay.addEventListener('touchend', tryGoFullscreen);
 
-      // Initial setup calls before loading starts
+      // Initial setup calls
       applyLetterboxing();
       updateOrientationUI();
+
+      // Hide any Unity-injected UI bars (title, fullscreen, restart buttons) dynamically.
+      var barObserver = new MutationObserver(function() {
+        var toHide = [
+          '#unity-footer', '#unity-fullscreen-button', '#unity-build-title',
+          '#unity-logo', '#unity-warning', '.unity-footer', '.fullscreen-button'
+        ];
+        toHide.forEach(function(sel) {
+          document.querySelectorAll(sel).forEach(function(el) {
+            el.style.setProperty('display', 'none', 'important');
+          });
+        });
+      });
+      barObserver.observe(document.body, { childList: true, subtree: true });
+
+      // Start loading Unity immediately — do not wait for user interaction.
+      // Deferring the load causes stack overflow in invoke_iii on some browsers.
+      startUnityLoad();
     </script>
   </body>
 </html>
